@@ -1,10 +1,10 @@
 # SAP Portfolio — Brayan Pedraza
 
-16 small, focused projects on real SAP business processes: Business One sales and finance, S/4HANA Finance (FI/CO), MM sourcing, integration patterns and modern ABAP (RAP).
+32 projects on real SAP business processes: Business One sales and finance, S/4HANA Finance (FI/CO), MM sourcing, integration patterns and modern ABAP (RAP).
 Each project states the business problem, encodes the rule in code and **proves it with automated tests**.
 
 ```bash
-./run_all_tests.sh     # 15 runnable projects, 45 automated tests
+./run_all_tests.sh     # 31 runnable projects, 79 automated tests
 ```
 
 | # | Project | Area | Business rule proven by tests | Stack |
@@ -25,10 +25,26 @@ Each project states the business problem, encodes the rule in code and **proves 
 | 14 | [Quotation comparator](projects/14-mm-quotation-comparator) | MM Sourcing | Box of 12 vs 12 units normalized; freight changes ranking | Python |
 | 15 | [WhatsApp → B1 Orders connector](projects/15-zavora-sap-b1-orders) | B1 Service Layer | Lost response after create → reconciled, never a second order (12 tests) | TypeScript, SQLite |
 | 16 | [Maintenance request approval](projects/16-abap-rap-maintenance-requests) | ABAP Cloud / RAP | Approve once; creator can't approve own request | ABAP RAP, CDS, Fiori |
+| 17 | [Colombian withholding taxes](projects/17-fi-co-withholding-taxes) | FI Colombia | Retefuente by UVT minimum base, ReteIVA, ReteICA; balanced entry | Python |
+| 18 | [Credit limit check](projects/18-sd-credit-limit-check) | SD Credit | Exposure = AR + open orders + order; overdue blocks; one-time release with reason | Python |
+| 19 | [Three-way match](projects/19-mm-three-way-match) | MM / FI-AP (MIRO) | Invoice > received or price above tolerance → payment block with reason | Python |
+| 20 | [Pricing procedure](projects/20-sd-pricing-procedure) | SD Pricing | Access sequence, customer discount, volume scale, IVA, step by step | Python |
+| 21 | [MRP reorder](projects/21-mm-mrp-reorder) | MM/PP MRP | Safety stock, lead time, minimum lot, pack rounding; shortage alert | Python |
+| 22 | [Bank statement reconciliation](projects/22-fi-bank-statement-reconciliation) | FI Bank | Reference/amount matching, GMF and fees to expense, worklist for the rest | Python |
+| 23 | [FX revaluation](projects/23-fi-fx-revaluation) | FI Valuation | USD open items at closing TRM, gain/loss and reversal next day | Python |
+| 24 | [Asset depreciation](projects/24-fi-aa-depreciation) | FI-AA | Straight line from next month, salvage value, partial retirement | Python |
+| 25 | [Preventive maintenance plans](projects/25-pm-preventive-maintenance-plans) | PM | Time- and counter-based calls; open order blocks duplicate | Python |
+| 26 | [ATP check](projects/26-sd-atp-check) | SD/MM ATP | Confirms partial now, rest after receipt, never steals committed stock | Python |
+| 27 | [Batch FEFO picking](projects/27-mm-batch-fefo-picking) | MM Batches | First-expired-first-out, minimum shelf life, quality block | Python |
+| 28 | [Payment run proposal](projects/28-fi-payment-run-proposal) | FI F110 | Early-payment discounts first, blocked vendors, bank limit | Python |
+| 29 | [Overhead assessment](projects/29-co-overhead-assessment) | CO KSU5 | Sequential cycles by drivers; sender zero; total preserved to the peso | Python |
+| 30 | [IDoc ORDERS05 inbound](projects/30-int-idoc-orders-inbound) | Integration | Status 51 with messages, reprocess to 53 after master data fix | Python |
+| 31 | [AMS ticket SLA](projects/31-ams-ticket-sla-triage) | AMS Support | Impact x urgency priority, business-hours SLA clock, pauses, escalation | Python |
+| 32 | [Period close cockpit](projects/32-fi-period-close-cockpit) | FI Close | Task dependencies, cycle detection, no close with critical tasks open | Python |
 
 ## Verification status (honest)
 
-- **01–14:** business logic verified locally with pytest. They model SAP processes; they are not yet connected to a live SAP system.
+- **01–14, 17–32:** business logic verified locally with pytest. They model SAP processes; they are not yet connected to a live SAP system.
 - **15:** verified against a Service Layer HTTP simulator. Real B1 company test pending.
 - **16:** ABAP source complete; activation and ABAP Unit run in an ABAP Cloud system pending.
 

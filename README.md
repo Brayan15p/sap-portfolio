@@ -1,10 +1,10 @@
 # SAP Portfolio — Brayan Pedraza
 
-42 projects on real SAP business processes: Business One sales and finance, S/4HANA Finance (FI/CO), MM sourcing, integration patterns and modern ABAP (RAP).
+50 projects on real SAP business processes: Business One sales and finance, S/4HANA Finance (FI/CO), MM sourcing, integration patterns and modern ABAP (RAP).
 Each project states the business problem, encodes the rule in code and **proves it with automated tests**.
 
 ```bash
-./run_all_tests.sh     # 41 runnable projects, 101 automated tests
+./run_all_tests.sh     # 49 runnable projects, 121 automated tests
 ```
 
 | # | Project | Area | Business rule proven by tests | Stack |
@@ -51,10 +51,18 @@ Each project states the business problem, encodes the rule in code and **proves 
 | 40 | [Product cost estimate](projects/40-co-product-cost-estimate) | CO-PC | Multi-level BOM with scrap, routing x activity rates, overhead, recursion check | Python |
 | 41 | [Finite capacity scheduling](projects/41-pp-finite-capacity-scheduling) | PP | Backward scheduling, capacity never exceeded, late orders with bottleneck | Python |
 | 42 | [Short dump analyzer](projects/42-ams-short-dump-analyzer) | AMS | Groups ST22 dumps by exception/program/line, ranks, suggests first check | Python |
+| 43 | [Brazil NF-e access key](projects/43-br-nfe-access-key) | Localization Brazil | 44-digit chave de acesso, mod-11 DV, CNPJ validation, tamper detection | Python |
+| 44 | [India GSTIN + GST](projects/44-in-gstin-gst-calculator) | Localization India | Base-36 GSTIN checksum; CGST+SGST vs IGST by state | Python |
+| 45 | [EU VAT determination](projects/45-eu-vat-determination) | Tax EU | Domestic, reverse charge, OSS destination rate, export | Python |
+| 46 | [Mexico CFDI 4.0 totals](projects/46-mx-cfdi-totals) | Localization Mexico | RFC type, IVA 16%, withheld IVA/ISR, totals the PAC checks | Python |
+| 47 | [IFRS 16 leases](projects/47-ifrs16-lease-accounting) | RE-FX / IFRS | Lease liability at PV, right-of-use asset, interest/principal split | Python |
+| 48 | [Multi-currency consolidation](projects/48-group-consolidation-multicurrency) | Group Reporting | Closing/average/historical rates, CTA, intercompany mismatch report | Python |
+| 49 | [US sales tax nexus](projects/49-us-sales-tax-nexus) | Tax US | Economic nexus by sales/transactions with AND/OR state rules | Python |
+| 50 | [Outbox event hub](projects/50-int-outbox-event-hub) | Integration infrastructure | Atomic write+event, per-subscriber retries with backoff, dead letter; HTTP API, Dockerfile, docker-compose | Python, SQLite, Docker |
 
 ## Verification status (honest)
 
-- **01–14, 17–42:** business logic verified locally with pytest. They model SAP processes; they are not yet connected to a live SAP system.
+- **01–14, 17–50:** business logic verified locally with pytest. They model SAP processes; they are not yet connected to a live SAP system.
 - **15:** verified against a Service Layer HTTP simulator. Real B1 company test pending.
 - **16:** ABAP source complete; activation and ABAP Unit run in an ABAP Cloud system pending.
 

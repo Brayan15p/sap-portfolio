@@ -1,0 +1,17 @@
+services:
+  hub:
+    build: .
+    ports: ["8080:8080"]
+    environment:
+      DB_PATH: /data/hub.db
+      SUBSCRIBERS: carrier=http://carrier:9000,shop=http://shop:9000
+    volumes: ["hubdata:/data"]
+    depends_on: [carrier, shop]
+  carrier:
+    build: .
+    command: ["python", "sink.py"]
+  shop:
+    build: .
+    command: ["python", "sink.py"]
+volumes:
+  hubdata:

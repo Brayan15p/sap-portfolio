@@ -1,0 +1,38 @@
+managed implementation in class zbp_r_mr_request unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZR_MR_REQUEST alias Request
+persistent table zmr_request
+draft table zmr_request_d
+lock master total etag LastChangedAt
+authorization master ( instance )
+etag master LocalLastChangedAt
+{
+  create; update; delete;
+
+  field ( numbering : managed, readonly ) RequestUuid;
+  field ( readonly ) RequestId, Status, DecidedBy, DecidedAt, CreatedBy, CreatedAt, LocalLastChangedAt, LastChangedAt;
+  field ( mandatory ) EquipmentId, Plant, Description, Priority;
+
+  determination setInitialValues on modify { create; }
+
+  validation validatePriority on save { create; field Priority; }
+  validation validateCost     on save { create; field EstimatedCost, Currency; }
+
+  action ( features : instance ) submit  result [1] $self;
+  action ( features : instance ) approve result [1] $self;
+  action ( features : instance ) reject  result [1] $self;
+
+  draft action Edit; draft action Activate optimized; draft action Discard; draft action Resume;
+  draft determine action Prepare { validation validatePriority; validation validateCost; }
+
+  mapping for zmr_request corresponding
+  {
+    RequestUuid = request_uuid; RequestId = request_id; EquipmentId = equipment_id;
+    Plant = plant; Description = description; Priority = priority;
+    EstimatedCost = estimated_cost; Currency = currency; Status = status;
+    DecidedBy = decided_by; DecidedAt = decided_at; CreatedBy = created_by; CreatedAt = created_at;
+    LocalLastChangedAt = local_last_changed_at; LastChangedAt = last_changed_at;
+  }
+}

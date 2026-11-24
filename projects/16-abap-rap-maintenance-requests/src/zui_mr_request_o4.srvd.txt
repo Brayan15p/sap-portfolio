@@ -1,0 +1,5 @@
+@EndUserText.label: 'Maintenance requests service'
+define service ZUI_MR_REQUEST {
+  expose ZC_MR_REQUEST as Request;
+}
+-- Service binding: ZUI_MR_REQUEST_O4, type OData V4 - UI. Create it in ADT and publish.

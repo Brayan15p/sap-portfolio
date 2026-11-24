@@ -1,0 +1,24 @@
+@EndUserText.label : 'Maintenance request'
+@AbapCatalog.enhancement.category : #NOT_EXTENSIBLE
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #A
+@AbapCatalog.dataMaintenance : #RESTRICTED
+define table zmr_request {
+  key client            : abap.clnt not null;
+  key request_uuid      : sysuuid_x16 not null;
+  request_id            : abap.numc(10);
+  equipment_id          : abap.char(20);
+  plant                 : abap.char(4);
+  description           : abap.char(255);
+  priority              : abap.char(1);      // 1 high, 2 medium, 3 low
+  @Semantics.amount.currencyCode : 'zmr_request.currency'
+  estimated_cost        : abap.curr(15,2);
+  currency              : abap.cuky;
+  status                : abap.char(1);      // N new, S submitted, A approved, R rejected
+  decided_by            : abp_lastchange_user;
+  decided_at            : abp_lastchange_tstmpl;
+  created_by            : abp_creation_user;
+  created_at            : abp_creation_tstmpl;
+  local_last_changed_at : abp_locinst_lastchange_tstmpl;
+  last_changed_at       : abp_lastchange_tstmpl;
+}

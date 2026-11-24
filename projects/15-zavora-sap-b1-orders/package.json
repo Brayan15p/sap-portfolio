@@ -1,0 +1,19 @@
+{
+  "name": "zavora-sap-b1-orders",
+  "version": "0.1.0",
+  "description": "Idempotent connector: confirmed WhatsApp orders -> SAP Business One Service Layer (OData V4) Orders",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p .",
+    "test": "vitest run",
+    "simulator": "tsx src/simulator-cli.ts",
+    "demo": "tsx src/demo.ts"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vitest": "^5.1.1"
+  }
+}

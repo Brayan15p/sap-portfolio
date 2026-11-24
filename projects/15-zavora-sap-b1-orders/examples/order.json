@@ -1,0 +1,11 @@
+{
+  "company": "distribuidora-demo",
+  "externalOrderId": "WA-2001",
+  "customerPhone": "+573001112233",
+  "currency": "COP",
+  "dueDate": "2026-12-01",
+  "lines": [
+    { "sku": "ARROZ-25KG", "quantity": 10, "unitPrice": 98000, "warehouse": "BOG01" },
+    { "sku": "ACEITE-3L", "quantity": 24, "unitPrice": 31500, "warehouse": "BOG02" }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "customersByPhone": { "+573001112233": "C0001", "+573004445566": "C0002" },
+  "items": {
+    "ARROZ-25KG": { "itemCode": "A1001", "uom": "BULTO" },
+    "ACEITE-3L": { "itemCode": "A2002", "uom": "UND" },
+    "AZUCAR-50KG": { "itemCode": "A3003", "uom": "BULTO" }
+  },
+  "warehouses": ["BOG01", "BOG02"]
+}

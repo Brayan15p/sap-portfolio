@@ -1,0 +1,29 @@
+@Metadata.layer: #CORE
+@UI.headerInfo: { typeName: 'Maintenance request', typeNamePlural: 'Maintenance requests',
+                  title: { value: 'RequestId' }, description: { value: 'EquipmentId' } }
+annotate entity ZC_MR_REQUEST with
+{
+  @UI.facet: [{ id: 'Main', purpose: #STANDARD, type: #IDENTIFICATION_REFERENCE, label: 'Request', position: 10 }]
+  @UI: { lineItem: [{ position: 10 },
+                    { type: #FOR_ACTION, dataAction: 'submit',  label: 'Submit' },
+                    { type: #FOR_ACTION, dataAction: 'approve', label: 'Approve' },
+                    { type: #FOR_ACTION, dataAction: 'reject',  label: 'Reject' }],
+         identification: [{ position: 10 }], selectionField: [{ position: 10 }] }
+  RequestId;
+  @UI: { lineItem: [{ position: 20 }], identification: [{ position: 20 }], selectionField: [{ position: 20 }] }
+  EquipmentId;
+  @UI: { lineItem: [{ position: 30 }], identification: [{ position: 30 }], selectionField: [{ position: 30 }] }
+  Plant;
+  @UI: { identification: [{ position: 40 }] }
+  Description;
+  @UI: { lineItem: [{ position: 50 }], identification: [{ position: 50 }] }
+  Priority;
+  @UI: { lineItem: [{ position: 60 }], identification: [{ position: 60 }] }
+  EstimatedCost;
+  @UI: { lineItem: [{ position: 70 }], identification: [{ position: 70 }], selectionField: [{ position: 40 }] }
+  Status;
+  @UI: { identification: [{ position: 80 }] }
+  DecidedBy;
+  @UI: { identification: [{ position: 90 }] }
+  DecidedAt;
+}

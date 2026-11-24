@@ -4,7 +4,7 @@
 Each project states the business problem, encodes the rule in code and **proves it with automated tests**.
 
 ```bash
-./run_all_tests.sh     # 15 projects, 47 automated tests
+./run_all_tests.sh     # 15 runnable projects, 45 automated tests
 ```
 
 | # | Project | Area | Business rule proven by tests | Stack |

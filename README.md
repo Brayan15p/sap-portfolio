@@ -1,10 +1,10 @@
 # SAP Portfolio — Brayan Pedraza
 
-32 projects on real SAP business processes: Business One sales and finance, S/4HANA Finance (FI/CO), MM sourcing, integration patterns and modern ABAP (RAP).
+42 projects on real SAP business processes: Business One sales and finance, S/4HANA Finance (FI/CO), MM sourcing, integration patterns and modern ABAP (RAP).
 Each project states the business problem, encodes the rule in code and **proves it with automated tests**.
 
 ```bash
-./run_all_tests.sh     # 31 runnable projects, 79 automated tests
+./run_all_tests.sh     # 41 runnable projects, 101 automated tests
 ```
 
 | # | Project | Area | Business rule proven by tests | Stack |
@@ -41,10 +41,20 @@ Each project states the business problem, encodes the rule in code and **proves 
 | 30 | [IDoc ORDERS05 inbound](projects/30-int-idoc-orders-inbound) | Integration | Status 51 with messages, reprocess to 53 after master data fix | Python |
 | 31 | [AMS ticket SLA](projects/31-ams-ticket-sla-triage) | AMS Support | Impact x urgency priority, business-hours SLA clock, pauses, escalation | Python |
 | 32 | [Period close cockpit](projects/32-fi-period-close-cockpit) | FI Close | Task dependencies, cycle detection, no close with critical tasks open | Python |
+| 33 | [DIAN e-invoice validator](projects/33-b1-dian-e-invoice-validator) | B1 Colombia | NIT check digit, IVA by rate group, totals, CUFE SHA-384 | Python |
+| 34 | [Landed costs (imports)](projects/34-b1-landed-costs-import) | B1 Landed Costs | Freight/insurance by value, handling by weight, duty on CIF; exact to the peso | Python |
+| 35 | [Moving average inventory](projects/35-b1-moving-average-inventory) | B1 Inventory | Average cost on receipts, returns at receipt price, negative stock refused | Python |
+| 36 | [Branch stock rebalancing](projects/36-b1-branch-stock-rebalancing) | B1 Multi-warehouse | Transfers from surplus to deficit, cheapest route, safety stock kept | Python |
+| 37 | [Volume rebates](projects/37-sd-volume-rebates) | SD Rebates | Retroactive tiers, monthly accruals with catch-up, exact settlement | Python |
+| 38 | [Vendor evaluation](projects/38-mm-vendor-evaluation) | MM | Price, on-time and quality scores; cheapest is not automatically best | Python |
+| 39 | [13-week cash forecast](projects/39-fi-13-week-cash-forecast) | FI Cash | Collections by real customer delay, first week below minimum flagged | Python |
+| 40 | [Product cost estimate](projects/40-co-product-cost-estimate) | CO-PC | Multi-level BOM with scrap, routing x activity rates, overhead, recursion check | Python |
+| 41 | [Finite capacity scheduling](projects/41-pp-finite-capacity-scheduling) | PP | Backward scheduling, capacity never exceeded, late orders with bottleneck | Python |
+| 42 | [Short dump analyzer](projects/42-ams-short-dump-analyzer) | AMS | Groups ST22 dumps by exception/program/line, ranks, suggests first check | Python |
 
 ## Verification status (honest)
 
-- **01–14, 17–32:** business logic verified locally with pytest. They model SAP processes; they are not yet connected to a live SAP system.
+- **01–14, 17–42:** business logic verified locally with pytest. They model SAP processes; they are not yet connected to a live SAP system.
 - **15:** verified against a Service Layer HTTP simulator. Real B1 company test pending.
 - **16:** ABAP source complete; activation and ABAP Unit run in an ABAP Cloud system pending.
 

@@ -1,10 +1,10 @@
 # SAP Portfolio — Brayan Pedraza
 
-50 projects on real SAP business processes: Business One sales and finance, S/4HANA Finance (FI/CO), MM sourcing, integration patterns and modern ABAP (RAP).
+100 projects on real SAP business processes: Business One sales and finance, S/4HANA Finance (FI/CO), MM sourcing, integration patterns and modern ABAP (RAP).
 Each project states the business problem, encodes the rule in code and **proves it with automated tests**.
 
 ```bash
-./run_all_tests.sh     # 49 runnable projects, 121 automated tests
+./run_all_tests.sh     # 99 runnable projects, 179 automated tests
 ```
 
 | # | Project | Area | Business rule proven by tests | Stack |
@@ -60,9 +60,94 @@ Each project states the business problem, encodes the rule in code and **proves 
 | 49 | [US sales tax nexus](projects/49-us-sales-tax-nexus) | Tax US | Economic nexus by sales/transactions with AND/OR state rules | Python |
 | 50 | [Outbox event hub](projects/50-int-outbox-event-hub) | Integration infrastructure | Atomic write+event, per-subscriber retries with backoff, dead letter; HTTP API, Dockerfile, docker-compose | Python, SQLite, Docker |
 
+
+## Projects 51–100: built from the biggest real SAP problems
+
+Research basis: public post-mortems of Lidl (~€500M written off; heavy customization to mimic its legacy purchase-price valuation), Haribo (S/4HANA go-live with processes incompatible with the software) and Revlon (shipping disruption attributed to lack of design and effective controls), plus the most cited S/4HANA migration risks (data quality, Business Partner/CVI, custom code) and recurring ABAP interview topics (performance, authorizations, transports).
+
+## Block A — Migration and data quality (Lidl, Haribo, S/4HANA conversions)
+
+| # | Project | Area | Rule proven by tests | Stack |
+|---|---|---|---|---|
+| 51 | [Mig Business Partner Duplicates](projects/51-mig-business-partner-duplicates) | S/4HANA migration · Business Partner (CVI) | see README | Python |
+| 52 | [Mig Cvi Readiness Check](projects/52-mig-cvi-readiness-check) | S/4HANA migration · CVI readiness | see README | Python |
+| 53 | [Mig Custom Code S4 Scanner](projects/53-mig-custom-code-s4-scanner) | S/4HANA migration · Custom code analysis | see README | Python |
+| 54 | [Mig Mock Load Reconciliation](projects/54-mig-mock-load-reconciliation) | Data migration · Mock load reconciliation | see README | Python |
+| 55 | [Mig Material Master Completeness](projects/55-mig-material-master-completeness) | Master data · Material master | see README | Python |
+| 56 | [Mig Value Mapping Validator](projects/56-mig-value-mapping-validator) | Data migration · Value mapping | see README | Python |
+| 57 | [Mig Cutover Critical Path](projects/57-mig-cutover-critical-path) | Go-live · Cutover planning | see README | Python |
+| 58 | [Golive Hypercare Burndown](projects/58-golive-hypercare-burndown) | Go-live · Hypercare | see README | Python |
+
+## Block B — Controls and fraud (Revlon: "lack of design and effective controls")
+
+| # | Project | Area | Rule proven by tests | Stack |
+|---|---|---|---|---|
+| 59 | [O2C Stuck Orders Monitor](projects/59-o2c-stuck-orders-monitor) | SD · Order-to-cash monitoring | see README | Python |
+| 60 | [Grc Sod Conflicts](projects/60-grc-sod-conflicts) | GRC · Segregation of duties | see README | Python |
+| 61 | [Grc Vendor Bank Change Fraud](projects/61-grc-vendor-bank-change-fraud) | FI-AP · Fraud detection | see README | Python |
+| 62 | [Mm Grir Clearing Analyzer](projects/62-mm-grir-clearing-analyzer) | MM/FI · GR/IR clearing | see README | Python |
+| 63 | [Sox Control Sampling](projects/63-sox-control-sampling) | Audit · SOX / internal control testing | see README | Python |
+| 64 | [Grc Critical Access Firefighter](projects/64-grc-critical-access-firefighter) | GRC · Emergency access | see README | Python |
+
+## Block C — Performance and operations (most asked in interviews)
+
+| # | Project | Area | Rule proven by tests | Stack |
+|---|---|---|---|---|
+| 65 | [Perf Sql Trace Analyzer](projects/65-perf-sql-trace-analyzer) | ABAP performance · ST05 SQL trace | see README | Python |
+| 66 | [Perf Internal Table Choice](projects/66-perf-internal-table-choice) | ABAP performance · Internal tables | see README | Python |
+| 67 | [Basis Job Chain Scheduler](projects/67-basis-job-chain-scheduler) | Basis · Background jobs (SM36/SM37) | see README | Python |
+| 68 | [Basis Transport Collision](projects/68-basis-transport-collision) | Basis · Transport management (STMS) | see README | Python |
+| 69 | [Basis Job Runtime Anomaly](projects/69-basis-job-runtime-anomaly) | Basis / AMS · Proactive monitoring | see README | Python |
+| 70 | [Int Qrfc Queue Monitor](projects/70-int-qrfc-queue-monitor) | Integration · qRFC/bgRFC queues (SMQ1/SMQ2) | see README | Python |
+
+## Block D — Retail and inventory (Lidl's retail vs purchase price valuation)
+
+| # | Project | Area | Rule proven by tests | Stack |
+|---|---|---|---|---|
+| 71 | [Retail Method Vs Cost Valuation](projects/71-retail-method-vs-cost-valuation) | IS-Retail · Inventory valuation (Lidl case) | see README | Python |
+| 72 | [Retail Promo Replenishment](projects/72-retail-promo-replenishment) | IS-Retail · Store replenishment with promotions | see README | Python |
+| 73 | [Mm Abc Xyz Classification](projects/73-mm-abc-xyz-classification) | MM · Inventory segmentation | see README | Python |
+| 74 | [Mm Obsolete Stock Provision](projects/74-mm-obsolete-stock-provision) | MM/FI · Slow-moving and obsolete stock | see README | Python |
+| 75 | [Wm Slotting By Velocity](projects/75-wm-slotting-by-velocity) | EWM/WM · Warehouse slotting | see README | Python |
+
+## Block E — Innovation: AI, ESG, treasury, logistics, governance
+
+| # | Project | Area | Rule proven by tests | Stack |
+|---|---|---|---|---|
+| 76 | [Ai Gl Account Suggestion](projects/76-ai-gl-account-suggestion) | AI · Accounts payable automation | see README | Python |
+| 77 | [Ai Benford Journal Anomalies](projects/77-ai-benford-journal-anomalies) | Audit analytics · Journal entries | see README | Python |
+| 78 | [Ai Invoice Text Extraction](projects/78-ai-invoice-text-extraction) | AI · Document capture | see README | Python |
+| 79 | [Ai Payment Date Prediction](projects/79-ai-payment-date-prediction) | AI · Receivables | see README | Python |
+| 80 | [Ai Demand Forecast Holt](projects/80-ai-demand-forecast-holt) | AI · Demand planning (IBP) | see README | Python |
+| 81 | [Ai Cash Application Remittance](projects/81-ai-cash-application-remittance) | AI · Cash application | see README | Python |
+| 82 | [Ai Spend Classification](projects/82-ai-spend-classification) | Procurement analytics · Spend cube | see README | Python |
+| 83 | [Ai Natural Language Report Query](projects/83-ai-natural-language-report-query) | Innovation · Natural-language analytics | see README | Python |
+| 84 | [Pm Reliability Mtbf](projects/84-pm-reliability-mtbf) | PM · Reliability engineering | see README | Python |
+| 85 | [Esg Purchase Carbon Footprint](projects/85-esg-purchase-carbon-footprint) | ESG · Scope 3 emissions (Sustainability Footprint) | see README | Python |
+| 86 | [Fin Dynamic Discounting](projects/86-fin-dynamic-discounting) | Treasury · Dynamic discounting / supply chain finance | see README | Python |
+| 87 | [Contract Price Escalation](projects/87-contract-price-escalation) | MM/SD · Contract price adjustment | see README | Python |
+| 88 | [Supplier Risk Scoring](projects/88-supplier-risk-scoring) | Procurement · Supplier risk | see README | Python |
+| 89 | [Global E Invoice Router](projects/89-global-e-invoice-router) | Global compliance · E-invoicing | see README | Python |
+| 90 | [Ps Earned Value](projects/90-ps-earned-value) | SAP PS · Project control (EVM) | see README | Python |
+| 91 | [Ams Sla Penalties](projects/91-ams-sla-penalties) | AMS / Outsourcing · Service credits | see README | Python |
+| 92 | [Tm Freight Cost Allocation](projects/92-tm-freight-cost-allocation) | SAP TM · Freight settlement | see README | Python |
+| 93 | [Tm Truck Load Building](projects/93-tm-truck-load-building) | SAP TM · Load planning | see README | Python |
+| 94 | [Treasury Intercompany Netting](projects/94-treasury-intercompany-netting) | Treasury · Multilateral netting | see README | Python |
+| 95 | [Treasury Fx Exposure Hedging](projects/95-treasury-fx-exposure-hedging) | Treasury · FX risk | see README | Python |
+| 96 | [Qm Acceptance Sampling](projects/96-qm-acceptance-sampling) | SAP QM · Inspection lots | see README | Python |
+| 97 | [Sd Customer Rfm Churn](projects/97-sd-customer-rfm-churn) | SD / CX · Customer analytics | see README | Python |
+| 98 | [Mdg Change Request Workflow](projects/98-mdg-change-request-workflow) | SAP MDG · Master data governance | see README | Python |
+| 99 | [Btp Api Rate Limit Client](projects/99-btp-api-rate-limit-client) | SAP BTP · Resilient API consumption | see README | Python |
+
+## Capstone
+
+| # | Project | Area | Rule proven by tests | Stack |
+|---|---|---|---|---|
+| 100 | [Capstone Go Live Readiness Score](projects/100-capstone-go-live-readiness-score) | Capstone · Go-live readiness (lessons from Lidl, Haribo, Revlon) | see README | Python |
+
 ## Verification status (honest)
 
-- **01–14, 17–50:** business logic verified locally with pytest. They model SAP processes; they are not yet connected to a live SAP system.
+- **01–14, 17–100:** business logic verified locally with pytest. They model SAP processes; they are not yet connected to a live SAP system.
 - **15:** verified against a Service Layer HTTP simulator. Real B1 company test pending.
 - **16:** ABAP source complete; activation and ABAP Unit run in an ABAP Cloud system pending.
 
